@@ -1,7 +1,11 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## Function makeChacheMatrix takes a matrix as an argument. 
+## It has a set and get functions to get and set the matrix
+## setInversed sets i to the inversed matrix
+## getInversed gets inversed matrix
+## makeChacheMatrix returns a list of the four functions.
 
 makeCacheMatrix <- function(x = matrix()) {
         # int inverse variable
@@ -32,9 +36,12 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## cacheSolve checks if the matrix was already inversed.
+## if yes, returns the inversed matrix from cache.
+## if no, performs the inversion and caches it
+## and returns the inversed matrix
 
-cacheSolve <- function(x, ...) {
+cacheSolve <- function(x) {
         
         # set i to inversed matrix
         i <- x$getInversed()
@@ -49,18 +56,17 @@ cacheSolve <- function(x, ...) {
         # get matrix
         matrix <- x$get()
         # calculate inverse of the matrix
-        i <- solve(matrix, ...)
-        # set inversed to the calculated i
+        i <- solve(matrix)
+        # caches the inversion 
         x$setInversed(i)
         
-        ## Return a matrix that is the inverse of 'x'
+        ## Returns the inversed matrix
         i
 }
 
 # test code
 matrix <- matrix(sample(1:200, 9, replace=T), nrow = 3, ncol = 3)
-my_matrix <- makeCacheMatrix()
-my_matrix$set( matrix )
+my_matrix <- makeCacheMatrix(matrix)
 my_matrix$get( )
 
 # cache inverse
