@@ -1,6 +1,3 @@
-## Put comments here that give an overall description of what your
-## functions do
-
 ## Function makeChacheMatrix takes a matrix as an argument. 
 ## It has a set and get functions to get and set the matrix
 ## setInversed sets i to the inversed matrix
@@ -8,7 +5,7 @@
 ## makeChacheMatrix returns a list of the four functions.
 
 makeCacheMatrix <- function(x = matrix()) {
-        # int inverse variable
+        # instantiate variable to later hold inverse matrix
         i <- NULL
         # set matrix        
         set <- function(y) {
@@ -71,4 +68,5 @@ my_matrix$get( )
 
 # cache inverse
 cacheSolve( my_matrix ) 
+# use cached matrix to get the identity matrix. just a contrived test case
 cacheSolve( my_matrix ) %*% matrix 
